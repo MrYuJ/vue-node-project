@@ -33,14 +33,16 @@
     },
     methods:{
       login() {
+        // 获取已有账号密码
         this.$http.get('/api/login/getAccount')
           .then((response) => {
-            console.log(response)
             // 响应成功回调
+            console.log(response)
             let params = { 
               account : this.account,
               password : this.password
             };
+            // 创建一个账号密码
             return this.$http.post('/api/login/createAccount',params);
           })
           .then((response) => {
